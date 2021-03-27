@@ -9,6 +9,7 @@ public class RestartSystem : MonoBehaviour
 {
     [SerializeField] private GameObject _losingText;
     [SerializeField] private GameObject _restartButton;
+    [SerializeField] private GameObject _startText;
 
     private bool _isGameOver = false;
 
@@ -20,6 +21,10 @@ public class RestartSystem : MonoBehaviour
         _ship = ship;
     }
 
+    private void Start()
+    {
+        StartCoroutine(OffStartText());
+    }
     private void Update()
     {
         if(!_isGameOver)
@@ -37,5 +42,11 @@ public class RestartSystem : MonoBehaviour
     {
         _ship.RestartValues();
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+    }
+
+    private IEnumerator OffStartText()
+    {
+        yield return new WaitForSeconds(1f);
+        _startText.SetActive(false);
     }
 }

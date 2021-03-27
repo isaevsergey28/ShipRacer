@@ -12,10 +12,11 @@ public class CameraMovement : MonoBehaviour
     private void Construct(Ship ship)
     {
         _ship = ship;
+        
     }
     void FixedUpdate()
     {
-        if(_ship.GetShipAlive())
+        if(_ship.GetShipAlive() )
         {
             transform.Translate(Vector3.up * Time.fixedDeltaTime * _speed);
         }
