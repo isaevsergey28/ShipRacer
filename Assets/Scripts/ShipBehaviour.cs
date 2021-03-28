@@ -7,6 +7,8 @@ public class ShipBehaviour : Ship
     [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private ParticleSystem _fire;
     [SerializeField] private AudioSource _explosionAudio;
+    [SerializeField] private AudioSource _collectCoinAudio;
+
     private Transform _deathPoint;
 
     private void Awake()
@@ -39,6 +41,7 @@ public class ShipBehaviour : Ship
         else if (other.gameObject.tag == "coins")
         {
             CollectCoins(other);
+            _collectCoinAudio.Play();
         }
     }
 
@@ -48,7 +51,7 @@ public class ShipBehaviour : Ship
         Destroy(other.gameObject);
     }
 
-    private void DestroyShip()
+    public void DestroyShip()
     {
         GameObject explosion;
         float time;

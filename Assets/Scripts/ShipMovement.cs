@@ -73,29 +73,14 @@ public class ShipMovement : Ship
     {
         _rigidbody.velocity = Vector3.up * _speed;
 
-        Vector3 touchDeltaPosition = (Vector3)Input.GetTouch(0).deltaPosition;
+        //Vector3 touchDeltaPosition = (Vector3)Input.GetTouch(0).deltaPosition;
 
-        if (touchDeltaPosition.x > 4)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, _rotationAngle * -1), _speed * Time.deltaTime);
-            transform.Translate(Vector3.right * _speed * Time.fixedDeltaTime);
-        }
-        else if (touchDeltaPosition.x < -4)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, _rotationAngle), _speed * Time.deltaTime);
-            transform.Translate(Vector3.right * -1 * _speed * Time.fixedDeltaTime);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), _speed * Time.deltaTime);
-        }
-
-        //if (Input.GetAxis("Mouse X") > 0)
+        //if (touchDeltaPosition.x > 4)
         //{
         //    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, _rotationAngle * -1), _speed * Time.deltaTime);
         //    transform.Translate(Vector3.right * _speed * Time.fixedDeltaTime);
         //}
-        //else if (Input.GetAxis("Mouse X") < 0)
+        //else if (touchDeltaPosition.x < -4)
         //{
         //    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, _rotationAngle), _speed * Time.deltaTime);
         //    transform.Translate(Vector3.right * -1 * _speed * Time.fixedDeltaTime);
@@ -104,6 +89,21 @@ public class ShipMovement : Ship
         //{
         //    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), _speed * Time.deltaTime);
         //}
+
+        if (Input.GetAxis("Mouse X") > 0)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, _rotationAngle * -1), _speed * Time.deltaTime);
+            transform.Translate(Vector3.right * _speed * Time.fixedDeltaTime);
+        }
+        else if (Input.GetAxis("Mouse X") < 0)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, _rotationAngle), _speed * Time.deltaTime);
+            transform.Translate(Vector3.right * -1 * _speed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), _speed * Time.deltaTime);
+        }
 
         _rotateSide = Random.Range(1, 3) == 1 ? RotateSide.Right : RotateSide.Left;
     }
