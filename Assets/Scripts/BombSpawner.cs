@@ -31,7 +31,7 @@ public class BombSpawner : MonoBehaviour
 
     private void CheckForSpawn()
     {
-        if (Random.Range(0, 1000) == 1)
+        if (Random.Range(0, 100) == 1)
         {
             GameObject bomb;
             bomb = Instantiate(_bombPrefab, _bombSpawners[Random.Range(0, _bombSpawners.Length)].position, Quaternion.identity, null);

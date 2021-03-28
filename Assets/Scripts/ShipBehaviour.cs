@@ -65,6 +65,7 @@ public class ShipBehaviour : Ship
         _explosionAudio.Play();
         explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity, null);
         gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        gameObject.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
         _fire.enableEmission = false;
         time = _explosionPrefab.GetComponent<ParticleSystem>().main.duration;
     }
