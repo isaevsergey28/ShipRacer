@@ -35,7 +35,6 @@ public class ShipBehaviour : Ship
     {
         if (other.gameObject.tag == "Wall")
         {
-            _isAlive = false;
             DestroyShip();
         }
         else if (other.gameObject.tag == "coins")
@@ -53,6 +52,7 @@ public class ShipBehaviour : Ship
 
     public void DestroyShip()
     {
+        _isAlive = false;
         GameObject explosion;
         float time;
         CreateExplosion(out explosion, out time);
