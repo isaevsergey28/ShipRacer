@@ -26,7 +26,6 @@ public class ShipBehaviour : Ship
             CheckEngine();
         }
     }
-
     private void CheckEngine()
     {
         _fire.enableEmission = _isEngineOn;
@@ -43,13 +42,11 @@ public class ShipBehaviour : Ship
             _collectCoinAudio.Play();
         }
     }
-
     private void CollectCoins(Collider other)
     {
         _coins++;
         Destroy(other.gameObject);
     }
-
     public void DestroyShip()
     {
         _isAlive = false;
@@ -59,7 +56,6 @@ public class ShipBehaviour : Ship
         Destroy(gameObject, time);
         Destroy(explosion, time);
     }
-
     private void CreateExplosion(out GameObject explosion, out float time)
     {
         _explosionAudio.Play();

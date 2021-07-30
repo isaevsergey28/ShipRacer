@@ -6,12 +6,10 @@ using Zenject;
 
 public class RoadSpawner : MonoBehaviour
 {
-    private Transform _player;
-
     [SerializeField] private GameObject[] _roadBlocks;
 
     private List<GameObject> _currentRoads = new List<GameObject>();
-
+    private Transform _player;
     private ShipSpawner _shipSpawner;
     
     [Inject]
@@ -33,12 +31,10 @@ public class RoadSpawner : MonoBehaviour
             SpawnRoad();
         }
     }
-
     private void LateUpdate()
     {
         CkeckForSpawn();
     }
-
     private void CkeckForSpawn()
     {
         if(_player)
@@ -57,7 +53,6 @@ public class RoadSpawner : MonoBehaviour
             }
         }
     }
-
     private void SpawnRoad()
     {
         GameObject road = Instantiate(_roadBlocks[Random.Range(0, _roadBlocks.Length)], transform);
@@ -77,7 +72,5 @@ public class RoadSpawner : MonoBehaviour
     {
         Destroy(_currentRoads[0]);
         _currentRoads.RemoveAt(0);
-
     }
-
 }

@@ -10,12 +10,10 @@ public class BootstrapInstaller : MonoInstaller
         BindShipWithCamera();
         BindShipWithRoads();
     }
-
     private void BindShipWithRoads()
     {
         Container.Bind<ShipSpawner>().FromInstance(_shipSpawner).AsSingle();
     }
-
     private void BindShipWithCamera()
     {
         Container.Bind<Ship>().FromInstance(_ship).AsSingle();

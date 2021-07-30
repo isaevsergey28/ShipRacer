@@ -8,7 +8,6 @@ public class ScoreSystem : MonoBehaviour
 {
     private Text _scoreText;
     private float _score;
-
     private Ship _ship;
 
     [Inject]
@@ -16,12 +15,10 @@ public class ScoreSystem : MonoBehaviour
     {
         _ship = ship;
     }
-
     private void Start()
     {
         _scoreText = GetComponent<Text>();
     }
-
     private void Update()
     {
         if(_ship.GetShipAlive())

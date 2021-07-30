@@ -19,7 +19,7 @@ public class BombSpawner : MonoBehaviour
     private void CheckDorDestroy()
     {
         _allBombs = _allBombs.Where(i => i != null).ToList();
-        foreach (GameObject bomb in _allBombs)
+        foreach (GameObject bomb in _allBombs.ToList())
         {
             if (bomb.transform.position.y < _deathPoint.position.y)
             {
@@ -31,7 +31,7 @@ public class BombSpawner : MonoBehaviour
 
     private void CheckForSpawn()
     {
-        if (Random.Range(0, 100) == 1)
+        if (Random.Range(0, 300) == 1)
         {
             GameObject bomb;
             bomb = Instantiate(_bombPrefab, _bombSpawners[Random.Range(0, _bombSpawners.Length)].position, Quaternion.identity, null);

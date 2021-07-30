@@ -12,7 +12,6 @@ public class RestartSystem : MonoBehaviour
     [SerializeField] private GameObject _startText;
 
     private bool _isGameOver = false;
-
     private Ship _ship;
 
     [Inject]
@@ -20,7 +19,6 @@ public class RestartSystem : MonoBehaviour
     {
         _ship = ship;
     }
-
     private void Start()
     {
         StartCoroutine(OffStartText());
@@ -37,13 +35,11 @@ public class RestartSystem : MonoBehaviour
             }
         }
     }
-
     public void RestartGame()
     {
         _ship.RestartValues();
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
-
     private IEnumerator OffStartText()
     {
         yield return new WaitForSeconds(1f);

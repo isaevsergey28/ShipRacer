@@ -5,8 +5,9 @@ using Zenject;
 
 public class CameraMovement : MonoBehaviour
 {
-    private Ship _ship;
     [SerializeField] private float _speed = 7;
+
+    private Ship _ship;
 
     [Inject]
     private void Construct(Ship ship)
